@@ -34,7 +34,7 @@ const getUrlPageId = (url) => {
     let pagId = pathList[pathList.length - 1]
     return pagId
 }
-const parseImageUrl = (url, width) => {
+const parseImageUrl = (url, width, slug) => {
     let rUrl
     if (url.startsWith("https://s3")) {
         let [parsedOriginUrl] = url.split("?")
@@ -45,8 +45,10 @@ const parseImageUrl = (url, width) => {
         rUrl = url
     }
 
+    let rSlug = slug.slice(0,8)+"-"+slug.slice(8,12)+"-"+slug.slice(12,16)+"-"+slug.slice(16,20)+"-"+slug.slice(20,32);
+
     if (width) {
-        return `${rUrl}?width=${width}`
+        return `${rUrl}?width=${width}&table=block&id=${rSlug}`
     } else {
         return rUrl
     }
