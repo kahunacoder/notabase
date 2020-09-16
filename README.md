@@ -6,7 +6,7 @@ API Wrapper For Notion's Database
 ### Installing
 
 ```
-yarn add notabase
+npm install @conradlin/notabase
 ```
 
 ### Use
